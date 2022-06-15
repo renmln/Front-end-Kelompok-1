@@ -1,6 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Rectangle127 from "../../images/Rectangle127.svg"
+import fi_plus from "../../images/fi_plus.png"
 
 export default function InfoProduk() {
     return (
@@ -20,15 +21,15 @@ export default function InfoProduk() {
                     <div className="container" style={{ padding: '30px', width: '70%' }}>
                         <div className="mb-3">
                             <label for="namaproduk" className="form-label">Nama Produk<span style={{ color: 'red' }}>*</span></label>
-                            <input type="text" className="form-control" id="namaproduk" placeholder="Nama Produk" required />
+                            <input type="text" className="form-control" id="namaproduk" placeholder="Nama Produk" required style={{borderRadius: '16px'}}/>
                         </div>
                         <div class="mb-3">
                             <label for="harga" className="form-label">Harga Produk<span style={{ color: 'red' }}>*</span></label>
-                            <input type="number" min="1" step="any" className="form-control" id="harga" placeholder="Rp 0,00" required />
+                            <input type="number" min="1" step="any" className="form-control" id="harga" placeholder="Rp 0,00" required  style={{borderRadius: '16px'}}/>
                         </div>
                         <div className="mb-3">
                             <label for="kategori" className="form-label">Kategori<span style={{ color: 'red' }}>*</span></label>
-                            <select className="form-select" id="kategori" required>
+                            <select className="form-select" id="kategori" required  style={{borderRadius: '16px'}}>
                                 <option selected>Pilih Kategori</option>
                                 <option value="1"> Pakaian</option>
                                 <option value="2"> Makanan</option>
@@ -37,13 +38,13 @@ export default function InfoProduk() {
                         </div>
                         <div className="mb-3">
                             <label for="deskripsi" className="form-label">Deskripsi<span style={{ color: 'red' }}>*</span></label>
-                            <input type="text" className="form-control" id="deskripsi" placeholder="contoh: Jalan Ikan Hiu 33" required />
+                            <input type="text" className="form-control" id="deskripsi" placeholder="contoh: Jalan Ikan Hiu 33" required  style={{borderRadius: '16px'}}/>
                         </div>
 
                         <div className="mb-3">
                             <label for="deskripsi" className="form-label">Foto Produk<span style={{ color: 'red' }}>*</span></label>
                             <div>
-                                <label><img src="fi_plus.png" alt='' style={{ borderStyle: 'dashed', padding: '34px', borderRadius: '12px', width: '96px', borderColor: '#d0d0d0' }} />
+                                <label><img src={fi_plus} alt='' style={{ borderStyle: 'dashed', padding: '34px', borderRadius: '12px', width: '96px', borderColor: '#d0d0d0' }} />
                                     <input type="file" accept=".jpg,.jpeg,.png" style={{ display: 'none' }} /></label>
                             </div>
                         </div>
