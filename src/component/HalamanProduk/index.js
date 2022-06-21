@@ -51,7 +51,7 @@ export default function HalamanProduk() {
                         <div className="card">
                             <div className="row">
                                 <div className="col-2 m-auto pl-2">
-                                    <img src={profilpenjual} alt='profilpenjual' className="w-100 " />
+                                    <img src={profilpenjual} alt='profilpenjual' className="w-50 " />
                                 </div>
                                 <div className="col-10">
                                     <h5 className="">Nama Penjual</h5>
