@@ -1,5 +1,14 @@
 .buttonradius12 {
-  border-radius: 12px;
+  border-radius: 12px !important
+}
+.buttonradius20 {
+  border-radius: 20px !important
+}
+.buttonradius16 {
+  border-radius: 16px !important
+}
+.borderradius8 {
+  border-radius: 8px !important;
 }
 
 /* button filter-landingpage */
@@ -53,4 +62,36 @@ fieldset[disabled] .btn-custom.active {
 .karosel {
   max-width: 100%;
   max-height: 100%
+}
+
+/* icon panah dropdown */
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.dropdown-menu {
+  min-width: 376px;
+}
+.dropdown-item {
+  padding: 10px;
+}
+
+
+.notifikasi {
+  border-radius: 0;
+  padding: 0;
+}
+
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #fff;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  padding: 5px;
 }

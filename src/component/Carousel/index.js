@@ -10,18 +10,18 @@ export default function CarouselBanner() {
     return (
         <div className="container-fluid">
             <div className="row">
-                <div style={{ display: 'block', padding: 30 }} className='karosel col-10 m-auto '>
-                    <Carousel>
-                        <Carousel.Item interval={500}>
+                <div style={{ display: 'block', padding: 30 }} className='karosel col-10 m-auto buttonradius20'>
+                    <Carousel className='buttonradius20'>
+                        <Carousel.Item interval={500} className='buttonradius20'>
                             <img
-                                className="d-block w-100 img"
+                                className="d-block w-100 img buttonradius20"
                                 src={carosel1}
                                 alt="First slide"
                             />
                         </Carousel.Item>
-                        <Carousel.Item interval={500}>
+                        <Carousel.Item interval={500}  className='buttonradius20'>
                             <img
-                                className="d-block w-100"
+                                className="d-block w-100 buttonradius20"
                                 src={carosel2}
                                 alt="Second slide"
                             />

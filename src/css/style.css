@@ -1,20 +1,24 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background: whitesmoke;
 }
-.row{
+
+.rowlogin {
     background: white;
     border-radius: 30px;
 }
-.img1{
+
+.img1 {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
-.btn1{
+
+.btn1 {
     border: none;
     outline: none;
     height: 50px;
@@ -24,67 +28,10 @@ body{
     border-radius: 4px;
     font-weight: bold;
 }
-.btn1:hover{
+
+.btn1:hover {
     background-color: white;
     border: 1px solid;
     color: rgba(113, 38, 181, 1);
 }
 
-/* Karin CSS Info Penawaran */
-.infoPenjual {
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-    padding: 16px;
-    width: 100%;
-}
-
-.imageSmall {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-}
-
-.btnPrimary {
-    background-color: #7126b5;
-    color: white;
-    border: 1px solid #7126b5;
-    border-radius: 16px;
-}
-
-.btnPrimary:hover {
-    background-color: #591e91;
-    color: white;
-    border: 1px solid #591e91;
-}
-
-.btnOutline {
-    border: 1px solid #7126b5;
-    color: black;
-    background-color: white;
-    border-radius: 16px;
-}
-
-.btnOutline:hover {
-    background-color: #7126b5;
-    color: white;
-    border: 1px solid #7126b5;
-}
-
-.modalProduk {
-    background: #dddddd;
-    border-radius: 16px;
-    padding: 15px;
-}
-
-.modalPenawaran {
-    background: #eeeeee;
-    border-radius: 16px;
-    padding: 15px;
-    width: 420px;
-}
-
-.notifToast {
-    background: #73ca5c;
-    border-radius: 12px;
-    color: white;
-}
