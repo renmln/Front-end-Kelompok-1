@@ -21,7 +21,7 @@ root.render(
                 <Route path="/login" element={<Login />} />
                 <Route path="/regis" element={<Regis />} />
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/halamanproduk" element={<HalamanProduk />} />
+                <Route path="/halamanproduk/:id" element={<HalamanProduk />} />
                 <Route path="/infoprofil" element={<InfoProfil />} />
                 <Route path="/infoproduk" element={<InfoProduk />} />
                 <Route path="/daftarjual" element={<DaftarJual />} />

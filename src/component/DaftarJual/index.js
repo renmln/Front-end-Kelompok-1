@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllProductByIdSeller} from "../../redux/actions/productsActions";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 import NavBar from "../NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,12 +10,16 @@ import "../../App.css";
 import {FiBox, FiHeart, FiDollarSign, FiChevronRight, FiPlus} from "react-icons/fi";
 
 export default function DaftarJual() {
+    const navigate = useNavigate();
+    const token = localStorage.getItem("token");
     const dispatch = useDispatch();
     const {product} = useSelector((state) => state.product);
 
     useEffect(() => {
+        if (token === null) { return navigate("/")}
         dispatch(getAllProductByIdSeller());
-    }, [dispatch]);
+    }, [dispatch, navigate, token]);
+
 
     return (
         <div className="container">

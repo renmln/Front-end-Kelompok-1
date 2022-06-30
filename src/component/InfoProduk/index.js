@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {addProduct} from "../../redux/actions/productsActions";
+import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import fi_plus from "../../images/fi_plus.png";
@@ -8,6 +10,7 @@ import NavBar from "../NavBar";
 
 export default function InfoProduk() {
     const dispatch = useDispatch();
+    const { user }= useSelector(state => state.auth);
     const {status} = useSelector((state) => state.product);
 
     const [product_name, setProductName] = useState("");
@@ -25,6 +28,18 @@ export default function InfoProduk() {
         window.location.href = "/daftarjual";
     }
 
+if (user !== null) {
+        if (user.address === null) {
+            Swal.fire({
+                position: "center",
+                icon: "warning",
+                title: "Harap Lengkapi Info Akun",
+                showConfirmButton: false,
+                timer: 1000,
+            });
+            return <Navigate to="/infoprofil" />;
+        }
+    }
     return (
         <div>
             <NavBar />

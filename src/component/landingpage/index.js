@@ -19,8 +19,8 @@ export default function LandingPage() {
     }, [dispatch]);
 
     return (
+        <div className="App">  
         <div>
-            <div>
                 <NavBar />
             </div>
             <div className="row">
