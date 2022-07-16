@@ -1,14 +1,5 @@
 import Swal from "sweetalert2";
-import {
-  AUTH_ERROR,
-  LOGIN,
-  REGISTER,
-  CLEAR,
-  LOGOUT,
-  UPDATE_INFO_USERS,
-  GET_USER,
-  GET_USER_ERROR,
-} from "./types";
+import { AUTH_ERROR, LOGIN, REGISTER, CLEAR, LOGOUT, UPDATE_INFO_USERS, GET_USER, GET_USER_ERROR } from "./types";
 
 export const login = (data) => async (dispatch) => {
   // localStorage.setItem("userId", user.data.id);
@@ -205,16 +196,13 @@ export const updateInfoUsers = (data) => async (dispatch) => {
       formdata.append("picture", data.file);
     }
 
-    const response = await fetch(
-      "http://localhost:8000/api/v1/profile/update",
-      {
-        method: "PUT",
-        body: formdata,
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
+    const response = await fetch("http://localhost:8000/api/v1/profile/update", {
+      method: "PUT",
+      body: formdata,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
 
     const result = await response.json();
 
@@ -302,6 +290,36 @@ export const getUserbyID = (params) => async (dispatch) => {
       position: "center",
       icon: "error",
       title: error.message,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
+};
+
+export const getToken = (params) => async (dispatch) => {
+  try {
+    const token = params;
+    const response = await fetch(`http://localhost:8000/api/v1/resetpassword/${token}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const data = await response.json();
+
+    dispatch({
+      type: GET_TOKEN,
+      payload: data,
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_TOKEN_ERROR,
+      payload: e.response,
+    });
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: e.message,
       showConfirmButton: false,
       timer: 1500,
     });
