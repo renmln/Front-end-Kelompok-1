@@ -1,4 +1,16 @@
-import { AUTH_ERROR, LOGIN, REGISTER, UPDATE_INFO_USERS, CLEAR, LOGOUT, GET_USER, GET_USER_ERROR } from "../actions/types";
+import {
+  AUTH_ERROR,
+  LOGIN,
+  REGISTER,
+  UPDATE_INFO_USERS,
+  CLEAR,
+  LOGOUT,
+  GET_USER,
+  GET_USER_ERROR,
+  GET_TOKEN,
+  GET_TOKEN_ERROR,
+  SEND_LINK,
+} from "../actions/types";
 
 const initialState = {
   isAuthenticated: !!localStorage.getItem("token"),
@@ -77,6 +89,13 @@ const authReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         status: "FAIL",
+      };
+    case SEND_LINK:
+      return {
+        ...state,
+        isAuthenticated: true,
+        token: action.token,
+        user: action.user,
       };
     default:
       return state;

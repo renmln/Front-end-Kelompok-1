@@ -8,6 +8,8 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const GET_USER = "GET_USER";
 export const GET_USER_ERROR = "GET_USER_ERROR";
 export const GET_TOKEN = "GET_TOKEN_ERROR";
+export const GET_TOKEN_ERROR = "GET_TOKEN_ERROR";
+export const SEND_LINK = "SEND_LINK";
 
 // ACTIONS FOR PRODUCTS
 export const GET_ALL_PRODUCT = "GET_ALL_PRODUCT";

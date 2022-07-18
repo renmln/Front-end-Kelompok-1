@@ -1,5 +1,17 @@
 import Swal from "sweetalert2";
-import { AUTH_ERROR, LOGIN, REGISTER, CLEAR, LOGOUT, UPDATE_INFO_USERS, GET_USER, GET_USER_ERROR } from "./types";
+import {
+  AUTH_ERROR,
+  LOGIN,
+  REGISTER,
+  CLEAR,
+  LOGOUT,
+  UPDATE_INFO_USERS,
+  GET_USER,
+  GET_USER_ERROR,
+  GET_TOKEN,
+  GET_TOKEN_ERROR,
+  SEND_LINK,
+} from "./types";
 
 export const login = (data) => async (dispatch) => {
   // localStorage.setItem("userId", user.data.id);
@@ -8,7 +20,6 @@ export const login = (data) => async (dispatch) => {
   try {
     const response = await fetch("http://localhost:8000/api/v1/login", {
       method: "POST",
-
       headers: {
         "Content-Type": "application/json",
       },
@@ -192,17 +203,24 @@ export const updateInfoUsers = (data) => async (dispatch) => {
     formdata.append("address", data.address);
     formdata.append("no_hp", data.no_hp);
 
+    if (data.resetPasswordLink) {
+      formdata.append("resetPasswordLink", data.resetPasswordLink);
+    }
+
     if (data.file) {
       formdata.append("picture", data.file);
     }
 
-    const response = await fetch("http://localhost:8000/api/v1/profile/update", {
-      method: "PUT",
-      body: formdata,
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
+    const response = await fetch(
+      "http://localhost:8000/api/v1/profile/update",
+      {
+        method: "PUT",
+        body: formdata,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
 
     const result = await response.json();
 
@@ -299,12 +317,15 @@ export const getUserbyID = (params) => async (dispatch) => {
 export const getToken = (params) => async (dispatch) => {
   try {
     const token = params;
-    const response = await fetch(`http://localhost:8000/api/v1/resetpassword/${token}`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `http://localhost:8000/api/v1/resetpassword/${token}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     dispatch({
@@ -322,6 +343,56 @@ export const getToken = (params) => async (dispatch) => {
       title: e.message,
       showConfirmButton: false,
       timer: 1500,
+    });
+  }
+};
+
+export const sendLink = (data) => async (dispatch) => {
+  try {
+    const response = await fetch(
+      "http://localhost:8000/api/v1/password-reset",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    const result = await response.json();
+
+    if (result.token) {
+      dispatch({
+        type: SEND_LINK,
+        token: result.token,
+        user: result.user,
+        status: result.status,
+      });
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Send Link Successful",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    } else {
+      authError(result.error);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Send Link Failed",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }
+  } catch (error) {
+    authError(error);
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: error.message,
+      showConfirmButton: false,
+      timer: 1000,
     });
   }
 };
