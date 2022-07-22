@@ -78,31 +78,32 @@ export default function LandingPage() {
   const jumlahproduksaya = [];
   if (product && user) {
     for (let i = 0; i < product.length; i++) {
-      if (product[i].status !== "NOT AVAILABLE" && product[i].id_seller === user.id) {
+      if (
+        product[i].status !== "NOT AVAILABLE" &&
+        product[i].id_seller === user.id
+      ) {
         jumlahproduksaya.push(product[i]);
       }
     }
   }
-  console.log(jumlahproduksaya)
+  console.log(jumlahproduksaya);
 
   function rupiah(number) {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
     }).format(number);
-
   }
 
   function handlebuttonjual() {
     if (jumlahproduksaya.length >= 5) {
       Swal.fire({
-        icon: 'error',
-        title: 'Tidak bisa manambahkan produk',
-        text: 'mencapai batas maksimal jual',
-      })
-    }
-    else {
-      navigate('/infoproduk')
+        icon: "error",
+        title: "Tidak bisa manambahkan produk",
+        text: "mencapai batas maksimal jual",
+      });
+    } else {
+      navigate("/infoproduk");
     }
   }
 
@@ -216,7 +217,7 @@ export default function LandingPage() {
                             height: "150px",
                             objectFit: "cover",
                           }}
-                          alt="test"
+                          alt="product_image"
                         />
                       </div>
                       <div className="card-body mb-3">
@@ -244,43 +245,54 @@ export default function LandingPage() {
                 </div>
               ))
           ) : (
-            Produktersedia.map(((item) => (
-                            <div key={item.id} className="col-md-4 col-xl-2 col-sm-12">
-                                <a href={`/halamanproduk/${item.id}`} className="text-decoration-none" style={{color: "black"}}>
-                                    <div className="card cardProduct " style={{}}>
-                                        <div className="d-flex justify-content-center ">
-                                            <img
-                                                className="card-img-top center-cropped m-1 img-fluid"
-                                                src={item.image_1}
-                                                style={{
-                                                    width: "200px",
-                                                    height: "150px",
-                                                    objectFit: "cover",
-                                                }}
-                                                alt="test"
-                                            />
-                                        </div>
-                                        <div className="card-body">
-                                            <h6 className="card-title text-decoration-none" style={{fontsize: "14px"}}>
-                                                {item.product_name}
-                                            </h6>
-                                            <p className="text-decoration-none" style={{fontsize: "10px"}}>
-                                                {item.category}
-                                            </p>
-                                            <p className="text-decoration-none" style={{fontsize: "14px"}}>
-                                                Rp {item.price}
-                          </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        )
-                        )
-            )
-                    )}
-                </div>
-            </div>
-      
+            Produktersedia.map((item) => (
+              <div key={item.id} className="col-md-4 col-xl-2 col-sm-12">
+                <a
+                  href={`/halamanproduk/${item.id}`}
+                  className="text-decoration-none"
+                  style={{ color: "black" }}
+                >
+                  <div className="card cardProduct " style={{}}>
+                    <div className="d-flex justify-content-center ">
+                      <img
+                        className="card-img-top center-cropped m-1 img-fluid"
+                        src={item.image_1}
+                        style={{
+                          width: "200px",
+                          height: "150px",
+                          objectFit: "cover",
+                        }}
+                        alt="test"
+                      />
+                    </div>
+                    <div className="card-body">
+                      <h6
+                        className="card-title text-decoration-none"
+                        style={{ fontsize: "14px" }}
+                      >
+                        {item.product_name}
+                      </h6>
+                      <p
+                        className="text-decoration-none"
+                        style={{ fontsize: "10px" }}
+                      >
+                        {item.category}
+                      </p>
+                      <p
+                        className="text-decoration-none"
+                        style={{ fontsize: "14px" }}
+                      >
+                        Rp {item.price}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
       <a onClick={handlebuttonjual}>
         <ButtonJual />
       </a>
