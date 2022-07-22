@@ -21,14 +21,17 @@ export const login = (data) => async (dispatch) => {
   // localStorage.setItem("userEmail", user.data.email);
   // localStorage.setItem("userInfo", JSON.stringify(data));
   try {
-    const response = await fetch("http://localhost:8000/api/v1/login", {
-      method: "POST",
+    const response = await fetch(
+      "https://secondhand-backend-k1.herokuapp.com/api/v1/login",
+      {
+        method: "POST",
 
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     const result = await response.json();
 
     if (result.token) {
@@ -69,13 +72,16 @@ export const login = (data) => async (dispatch) => {
 
 export const regis = (data) => async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:8000/api/v1/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://secondhand-backend-k1.herokuapp.com/api/v1/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     const result = await response.json();
 
@@ -118,13 +124,16 @@ export const loginWithGoogle = (accessToken) => async (dispatch) => {
     const data = {
       access_token: accessToken,
     };
-    const response = await fetch("http://localhost:8000/api/v1/auth/google", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://secondhand-backend-k1.herokuapp.com/api/v1/auth/google",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     const result = await response.json();
 
@@ -160,12 +169,15 @@ export const loginWithGoogle = (accessToken) => async (dispatch) => {
 
 export const cekTokenExp = () => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/whoami`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
+    const response = await fetch(
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/whoami`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
 
     const result = await response.json();
 
@@ -212,7 +224,7 @@ export const updateInfoUsers = (data) => async (dispatch) => {
     }
 
     const response = await fetch(
-      "http://localhost:8000/api/v1/profile/update",
+      "https://secondhand-backend-k1.herokuapp.com/api/v1/profile/update",
       {
         method: "PUT",
         body: formdata,
@@ -286,13 +298,16 @@ export const getUserbyID = (params) => async (dispatch) => {
   try {
     const id = params;
     console.log(id);
-    const response = await fetch(`http://localhost:8000/api/v1/users/${id}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/users/${id}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
 
     dispatch({
@@ -317,7 +332,7 @@ export const getUserbyID = (params) => async (dispatch) => {
 export const sendLinkResetPassword = (data) => async (dispatch) => {
   try {
     const response = await fetch(
-      "http://localhost:8000/api/v1/password-reset",
+      "https://secondhand-backend-k1.herokuapp.com/api/v1/password-reset",
       {
         method: "POST",
         headers: {
@@ -370,7 +385,7 @@ export const sendLinkResetPassword = (data) => async (dispatch) => {
 export const verifiedLink = (id, token) => async (dispatch) => {
   try {
     const response = await fetch(
-      `http://localhost:8000/api/v1/verify-token/${id}/${token}`,
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/verify-token/${id}/${token}`,
       {
         method: "GET",
         headers: {
@@ -403,7 +418,7 @@ export const verifiedLink = (id, token) => async (dispatch) => {
 export const resetPassword = (id, data) => async (dispatch) => {
   try {
     const response = await fetch(
-      `http://localhost:8000/api/v1/password-reset/${id}`,
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/password-reset/${id}`,
       {
         method: "PUT",
         headers: {

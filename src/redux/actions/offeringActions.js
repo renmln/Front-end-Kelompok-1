@@ -6,7 +6,7 @@ import {
   OFFERING_ERROR,
   GET_ALL,
   DELETE_OFFERING,
-  UPDATE_OFFERING
+  UPDATE_OFFERING,
 } from "./types";
 import axios from "axios";
 
@@ -25,7 +25,7 @@ export const addOffering = (params) => async (dispatch) => {
     // // console.log("t" + JSON.stringify(formdata))
 
     // const response = await fetch(
-    //   "http://localhost:8000/api/v1/products/offer",
+    //   "https://secondhand-backend-k1.herokuapp.com/api/v1/products/offer",
     //   {
     //     method: "POST",
     //     headers: {
@@ -49,7 +49,7 @@ export const addOffering = (params) => async (dispatch) => {
       },
     };
     const response = await axios.post(
-      "http://localhost:8000/api/v1/products/offer",
+      "https://secondhand-backend-k1.herokuapp.com/api/v1/products/offer",
       {
         id_product,
         offering_price,
@@ -91,7 +91,7 @@ export const getOfferbyIDProduct = (params) => async (dispatch) => {
   try {
     const id = params.id;
     const response = await fetch(
-      `http://localhost:8000/api/v1/products/offered/${id}`,
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/products/offered/${id}`,
       {
         method: "GET",
         headers: {
@@ -124,7 +124,7 @@ export const getOfferbyIDProduct = (params) => async (dispatch) => {
 export const getOfferingByIdBuyer = (params) => async (dispatch) => {
   try {
     const response = await fetch(
-      `http://localhost:8000/api/v1/products/offer`,
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/products/offer`,
       {
         method: "GET",
         headers: {
@@ -156,7 +156,9 @@ export const getOfferingByIdBuyer = (params) => async (dispatch) => {
 
 export const getAllOffering = () => async (dispatch) => {
   try {
-    const res = await fetch(`http://localhost:8000/api/v1/products/alloffer`);
+    const res = await fetch(
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/products/alloffer`
+    );
     const data = await res.json();
     dispatch({
       type: GET_ALL,
@@ -172,83 +174,80 @@ export const getAllOffering = () => async (dispatch) => {
 };
 
 export const deleteOffering = (params) => async (dispatch) => {
-  
   try {
     const response = await fetch(
-      `http://localhost:8000/api/v1/product/offered/delete/${params.id}`,
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/product/offered/delete/${params.id}`,
       {
         method: "DELETE",
       }
     );
-      const data = await response.json();
+    const data = await response.json();
 
-      dispatch({
-          type: DELETE_OFFERING,
-          payload: data.status,
-      });
+    dispatch({
+      type: DELETE_OFFERING,
+      payload: data.status,
+    });
 
-      Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Delete success",
-          showConfirmButton: false,
-          timer: 1500,
-      });
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Delete success",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   } catch (error) {
-      dispatch({
-          type: OFFERING_ERROR,
-          payload: error,
-      });
+    dispatch({
+      type: OFFERING_ERROR,
+      payload: error,
+    });
 
-      Swal.fire({
-          position: "center",
-          icon: "error",
-          title: error,
-          showConfirmButton: false,
-          timer: 1500,
-      });
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: error,
+      showConfirmButton: false,
+      timer: 1500,
+    });
   }
 };
 
 export const updateOffering = (params) => async (dispatch) => {
   try {
-      const status = params.status;
+    const status = params.status;
 
-      console.log(params)
+    console.log(params);
 
-      const config = {
-          headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-              "Content-type": "application/json",
-          },
-      };
-      const response = await axios.put(
-          `http://localhost:8000/api/v1/product/offered/update/${params.id}`,
-          {
-              status
-          },
-          config
-      );
-      const data = await response.data;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-type": "application/json",
+      },
+    };
+    const response = await axios.put(
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/product/offered/update/${params.id}`,
+      {
+        status,
+      },
+      config
+    );
+    const data = await response.data;
 
-
-      dispatch({
-          type: UPDATE_OFFERING,
-          status: data.status,
-      });
-
+    dispatch({
+      type: UPDATE_OFFERING,
+      status: data.status,
+    });
   } catch (error) {
-      dispatch({
-          type: OFFERING_ERROR,
-          payload: error.response,
-      });
+    dispatch({
+      type: OFFERING_ERROR,
+      payload: error.response,
+    });
 
-      Swal.fire({
-          position: "center",
-          icon: "error",
-          title: error,
-          showConfirmButton: false,
-          timer: 1500,
-      });
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: error,
+      showConfirmButton: false,
+      timer: 1500,
+    });
   }
 };
