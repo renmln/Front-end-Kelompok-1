@@ -74,6 +74,7 @@ export default function LandingPage() {
       }
     }
   }
+  console.log(Produktersedia);
 
   const jumlahproduksaya = [];
   if (product && user) {
@@ -201,7 +202,7 @@ export default function LandingPage() {
             product
               .filter((item) => item.category === category)
               .map((item) => (
-                <div key={item.id} className="col-md-4 col-xl-2 col-sm-12">
+                <div key={item.id} className="col-md-4 col-xl-3 col-sm-12">
                   <a
                     href={`/halamanproduk/${item.id}`}
                     className="text-decoration-none"
@@ -246,7 +247,7 @@ export default function LandingPage() {
               ))
           ) : (
             Produktersedia.map((item) => (
-              <div key={item.id} className="col-md-4 col-xl-2 col-sm-12">
+              <div key={item.id} className="col-md-4 col-xl-3 col-sm-12">
                 <a
                   href={`/halamanproduk/${item.id}`}
                   className="text-decoration-none"
@@ -258,11 +259,11 @@ export default function LandingPage() {
                         className="card-img-top center-cropped m-1 img-fluid"
                         src={item.image_1}
                         style={{
-                          width: "200px",
-                          height: "150px",
-                          objectFit: "cover",
+                          width: "250px",
+                          height: "200px",
+                          objectFit: "contain",
                         }}
-                        alt="test"
+                        alt="product_image"
                       />
                     </div>
                     <div className="card-body">

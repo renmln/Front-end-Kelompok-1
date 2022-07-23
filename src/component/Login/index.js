@@ -101,7 +101,13 @@ const Regis = () => {
                 <div classname={{ marginTop: "20px" }}>
                   <p>
                     {" "}
-                    Lupa Password ? <Link to="/lupa-password">Klik disini</Link>
+                    Lupa Password ?{" "}
+                    <Link
+                      to="/lupa-password"
+                      style={{ color: "#4b1979", fontWeight: "normal" }}
+                    >
+                      Klik disini
+                    </Link>
                   </p>
                 </div>
                 <div className="d-flex justify-content-center">
