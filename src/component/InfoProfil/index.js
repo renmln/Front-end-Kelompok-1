@@ -40,12 +40,15 @@ export default function InfoProfil() {
 
   const getUserById = async () => {
     if (name === "" && role === "") {
-      const response = await fetch(`http://localhost:8000/api/v1/whoami`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await fetch(
+        `https://secondhand-backend-k1.herokuapp.com/api/v1/whoami`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       const result = await response.json();
       setName(result.user.name);
       setRole(result.user.role);
@@ -87,7 +90,7 @@ export default function InfoProfil() {
                 <img
                   src={photo_profile}
                   alt=""
-                  style={{ maxHeight: "150px", maxWidth: "150px"}}
+                  style={{ maxHeight: "150px", maxWidth: "150px" }}
                 />
               ) : (
                 <img src={Group1} alt=".." />

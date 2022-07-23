@@ -29,7 +29,7 @@ export default function EditProduct() {
   const checkProductById = async () => {
     if (product_name === "") {
       const response = await fetch(
-        `http://localhost:8000/api/v1/product/${id}`
+        `https://secondhand-backend-k1.herokuapp.com/api/v1/product/${id}`
       );
       const result = await response.json();
 
