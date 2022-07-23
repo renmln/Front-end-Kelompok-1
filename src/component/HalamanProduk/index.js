@@ -98,6 +98,7 @@ export default function HalamanProduk() {
   if (detailProduct.image_4 !== null) {
     imagepreview.push(detailProduct.image_4);
   }
+  console.log(imagepreview);
 
   let cekoffer = [];
   if (offering && user) {
