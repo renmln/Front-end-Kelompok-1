@@ -29,13 +29,6 @@ export const getAllNotificationByIdSeller = (params) => async (dispatch) => {
       type: NOTIFICATION_ERROR,
       payload: error.response,
     });
-    // Swal.fire({
-    //     position: "center",
-    //     icon: "error",
-    //     title: error.message,
-    //     showConfirmButton: false,
-    //     timer: 1500,
-    // });
   }
 };
 
@@ -44,7 +37,6 @@ export const updateNotification = (params) => async (dispatch) => {
     const status = params.status;
 
     console.log(params);
-    // const data = await response.json();
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,

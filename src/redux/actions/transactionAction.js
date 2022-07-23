@@ -59,12 +59,6 @@ export const addTransaction = (params) => async (dispatch) => {
       type: CREATE_TRANSACTION,
       status: data.status,
     });
-    // Swal.fire({
-    //     title: "Berhasil",
-    //     text: "Harga tawaranmu telah terkirim",
-    //     icon: "success",
-    //     confirmButtonText: "OK",
-    // });
   } catch (error) {
     dispatch({
       type: TRANSACTION_ERROR,
@@ -84,19 +78,7 @@ export const addTransaction = (params) => async (dispatch) => {
 export const updateTransaction = (params) => async (dispatch) => {
   try {
     const status = params.status;
-
-    // var formdata = new FormData();
-    // formdata.append("status", params.status)
-
-    // const response = await fetch(`https://secondhand-backend-k1.herokuapp.com/api/v1/transactions/update/${params.id}`, {
-    //     method: "PUT",
-    //     headers: {
-    //         Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //     },
-    //     body: status,
-    // });
     console.log(params);
-    // const data = await response.json();
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -116,14 +98,6 @@ export const updateTransaction = (params) => async (dispatch) => {
       type: UPDATE_TRANSACTION,
       status: data.status,
     });
-
-    // Swal.fire({
-    //     position: "center",
-    //     icon: "success",
-    //     title: "Success",
-    //     showConfirmButton: false,
-    //     timer: 1500,
-    // });
   } catch (error) {
     dispatch({
       type: TRANSACTION_ERROR,

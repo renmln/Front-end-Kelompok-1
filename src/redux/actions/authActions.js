@@ -17,15 +17,11 @@ import {
 } from "./types";
 
 export const login = (data) => async (dispatch) => {
-  // localStorage.setItem("userId", user.data.id);
-  // localStorage.setItem("userEmail", user.data.email);
-  // localStorage.setItem("userInfo", JSON.stringify(data));
   try {
     const response = await fetch(
       "https://secondhand-backend-k1.herokuapp.com/api/v1/login",
       {
         method: "POST",
-
         headers: {
           "Content-Type": "application/json",
         },

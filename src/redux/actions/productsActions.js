@@ -147,7 +147,6 @@ export const updateProduct = (params) => async (dispatch) => {
     console.log("updateproduk");
     console.log(params);
     var formdata = new FormData();
-    // formdata.append("id_seller", params.idSeller);
     formdata.append("product_name", params.product_name);
     formdata.append("price", params.price);
     formdata.append("category", params.category);
@@ -157,7 +156,6 @@ export const updateProduct = (params) => async (dispatch) => {
       formdata.append("status", params.status);
     }
     console.log("vek");
-    // Upload new image
     if (params.file) {
       for (let i = 0; i < params.file.length; i++) {
         formdata.append("picture", params.file[i]);

@@ -15,33 +15,6 @@ export const addOffering = (params) => async (dispatch) => {
     const id_product = params.id_product;
     const offering_price = params.offering_price;
     const no_hp = params.no_hp;
-    // var formdata = new FormData();
-    // formdata.append("id_product", id_product);
-    // formdata.append("id_buyer", id_buyer);
-    // formdata.append("offering_price", offering_price);
-    // const x = {};
-    // formdata.forEach((value, key) => (x[key] = value));
-    // console.log("m" + JSON.stringify(x))
-    // // console.log("t" + JSON.stringify(formdata))
-
-    // const response = await fetch(
-    //   "https://secondhand-backend-k1.herokuapp.com/api/v1/products/offer",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //       "Content-type": "application/json",
-    //     },
-    //     body: formdata,
-    //   }
-    // );
-
-    // const data = await response.json();
-    // console.log(data)
-    // dispatch({
-    //   type: CREATE_OFFERING,
-    //   status: data.status,
-    // });
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
