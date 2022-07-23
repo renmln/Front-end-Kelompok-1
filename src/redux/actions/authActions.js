@@ -77,6 +77,8 @@ export const regis = (data) => async (dispatch) => {
       {
         method: "POST",
         headers: {
+          "Access-Control-Allow-Origin":
+            "https://secondhand-backend-k1.herokuapp.com",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
@@ -129,8 +131,6 @@ export const loginWithGoogle = (accessToken) => async (dispatch) => {
       {
         method: "POST",
         headers: {
-          "Access-Control-Allow-Origin":
-            "https://secondhand-backend-k1.herokuapp.com",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
