@@ -5,16 +5,18 @@ import { useParams } from "react-router-dom";
 import { verifiedLink, resetPassword } from "../../redux/actions/authActions";
 
 export default function ResetPassword() {
-  const { id, token } = useParams();
+  const { token } = useParams();
   const dispatch = useDispatch();
-  const { detailUser } = useSelector((state) => state.auth);
+  const { message } = useSelector((state) => state.auth);
   const [password, setPassword] = useState("");
   const [validpassword, setValidPassword] = useState("");
-  const validUrl = detailUser !== null ? true : false;
+  const validUrl = message === "verified" ? true : false;
 
   useEffect(() => {
-    dispatch(verifiedLink(id, token));
-  }, [dispatch, id, token]);
+    dispatch(verifiedLink(token));
+  }, [dispatch, token]);
+
+  console.log(message);
 
   const handleSubmit = () => {
     const data = { password };
@@ -27,8 +29,8 @@ export default function ResetPassword() {
         timer: 1000,
       });
     } else {
-      dispatch(resetPassword(detailUser.id_user, data));
-      window.location = "/login";
+      dispatch(resetPassword(token, data));
+      // window.location = '/login';
     }
   };
 

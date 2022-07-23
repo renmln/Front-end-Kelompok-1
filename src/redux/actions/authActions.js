@@ -378,13 +378,15 @@ export const sendLinkResetPassword = (data) => async (dispatch) => {
   }
 };
 
-export const verifiedLink = (id, token) => async (dispatch) => {
+export const verifiedLink = (token) => async (dispatch) => {
   try {
+    console.log(token);
     const response = await fetch(
-      `https://secondhand-backend-k1.herokuapp.com/api/v1/verify-token/${id}/${token}`,
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/verify-token`,
       {
         method: "GET",
         headers: {
+          Authorization: `Bearer ${token}`,
           "Content-type": "application/json",
         },
       }
@@ -395,6 +397,7 @@ export const verifiedLink = (id, token) => async (dispatch) => {
     dispatch({
       type: GET_LINK_RESET,
       payload: data,
+      message: data.message,
     });
   } catch (error) {
     dispatch({
@@ -411,23 +414,25 @@ export const verifiedLink = (id, token) => async (dispatch) => {
   }
 };
 
-export const resetPassword = (id, data) => async (dispatch) => {
+export const resetPassword = (token, data) => async (dispatch) => {
   try {
     const response = await fetch(
-      `https://secondhand-backend-k1.herokuapp.com/api/v1/password-reset/${id}`,
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/password-reset`,
       {
         method: "PUT",
         headers: {
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }
     );
     const result = await response.json();
+    console.log("reset");
+    console.log(result);
     dispatch({
       type: RESET_PASSWORD,
       user: result,
-      token: result.token,
       message: result.message,
     });
     Swal.fire({

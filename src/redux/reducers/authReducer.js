@@ -82,7 +82,6 @@ const authReducer = (state = initialState, action) => {
         status: "FAIL",
       };
     case SEND_LINK_RESET:
-      localStorage.setItem("token", action.token);
       return {
         ...state,
         token: action.token,
@@ -98,7 +97,7 @@ const authReducer = (state = initialState, action) => {
     case GET_LINK_RESET:
       return {
         ...state,
-        detailUser: action.payload,
+        message: action.message,
       };
     case GET_LINK_ERROR:
       return {
