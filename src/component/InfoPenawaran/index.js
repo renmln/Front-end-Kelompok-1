@@ -23,7 +23,7 @@ import {
 } from "../../redux/actions/transactionAction";
 import { UPDATE_PRODUCT } from "../../redux/actions/types";
 import { updateProduct } from "../../redux/actions/productsActions";
-import { format, parseISO } from 'date-fns';
+import { format, parseISO } from "date-fns";
 
 export default function InfoPenawaran() {
   let [show, setShow] = useState(false);
@@ -48,8 +48,6 @@ export default function InfoPenawaran() {
     dispatch(getAllTransaction());
   }, [dispatch]);
 
-
-
   // Data Dummy
   const produkDitawar = [];
 
@@ -73,8 +71,8 @@ export default function InfoPenawaran() {
 
   if (produkDitawar) {
     produkDitawar.sort(function (a, b) {
-      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    })
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    });
   }
 
   function handleTerima(index) {
@@ -94,11 +92,11 @@ export default function InfoPenawaran() {
   function handleTolak(index) {
     const data = {
       id: produkDitawar[index].id,
-      status: "Ditolak"
+      status: "Ditolak",
     };
     // console.log(data)
     dispatch(updateOffering(data));
-    window.location.reload()
+    window.location.reload();
   }
   function handlerefresh() {
     window.location.reload();
@@ -115,12 +113,11 @@ export default function InfoPenawaran() {
       console.log(updatestatusproduct);
       dispatch(updateProduct(updatestatusproduct));
 
-
       const data = {
         id: listtransaksi[index].id_offering,
-        status: "BERHASIL"
+        status: "BERHASIL",
       };
-      dispatch(updateOffering(data))
+      dispatch(updateOffering(data));
     }
 
     if (status === "GAGAL") {
@@ -133,9 +130,9 @@ export default function InfoPenawaran() {
 
       const data = {
         id: listtransaksi[index].id_offering,
-        status: "GAGAL"
+        status: "GAGAL",
       };
-      dispatch(updateOffering(data))
+      dispatch(updateOffering(data));
     }
 
     const data = {
@@ -170,7 +167,7 @@ export default function InfoPenawaran() {
           style={{ justifyContent: "center", alignItems: "center" }}
         >
           <span
-            className="navbar-brand mb-0 h1" 
+            className="navbar-brand mb-0 h1"
             style={{ fontWeight: "400px" }}
           >
             Info Penawar
@@ -269,16 +266,15 @@ export default function InfoPenawaran() {
                         className="align-self-start ms-auto"
                         style={{ fontSize: "12px", color: "#BABABA" }}
                       >
-                        {format(parseISO(produk.createdAt), 'dd MMM, kk:mm')}
+                        {format(parseISO(produk.createdAt), "dd MMM, kk:mm")}
                       </p>
                     </Stack>
 
-                    {listtransaksi.find(
-                      (x) => x.id_offering === produk.id
-                    ) ? (
+                    {listtransaksi.find((x) => x.id_offering === produk.id) ? (
                       <>
                         <div className="float-end mt-2">
-                          {produk.status === "BERHASIL" || produk.status === "GAGAL" ? (
+                          {produk.status === "BERHASIL" ||
+                          produk.status === "GAGAL" ? (
                             <>
                               <Button
                                 className="btnOutline me-2 px-5"
@@ -288,9 +284,20 @@ export default function InfoPenawaran() {
                               >
                                 Transaksi {produk.status}
                               </Button>
-                              <Button className="btnPrimary px-3" disabled>
-                                Hubungi di <i className="bi bi-whatsapp ms-2"></i>
-                              </Button>
+                              <a
+                                href={
+                                  "https://api.whatsapp.com/send/?phone=" +
+                                  detailUser.no_hp +
+                                  "&text&app_absent=0"
+                                }
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Button className="btnPrimary px-3">
+                                  Hubungi di{" "}
+                                  <i className="bi bi-whatsapp ms-2"></i>
+                                </Button>
+                              </a>
                             </>
                           ) : (
                             <>
@@ -311,12 +318,12 @@ export default function InfoPenawaran() {
                                 rel="noopener noreferrer"
                               >
                                 <Button className="btnPrimary px-3">
-                                  Hubungi di <i className="bi bi-whatsapp ms-2"></i>
+                                  Hubungi di{" "}
+                                  <i className="bi bi-whatsapp ms-2"></i>
                                 </Button>
                               </a>
                             </>
                           )}
-
                         </div>
                       </>
                     ) : (
@@ -324,7 +331,8 @@ export default function InfoPenawaran() {
                         <div className="float-end mt-2">
                           {produk.status === "Ditolak" ? (
                             <>
-                              <Button className="btnOutline me-2 px-5"
+                              <Button
+                                className="btnOutline me-2 px-5"
                                 // onClick={() => handleTolak(index)}
                                 disabled
                               >
@@ -342,7 +350,8 @@ export default function InfoPenawaran() {
                             </>
                           ) : (
                             <>
-                              <Button className="btnOutline me-2 px-5"
+                              <Button
+                                className="btnOutline me-2 px-5"
                                 onClick={() => handleTolak(index)}
                               >
                                 Tolak
@@ -356,9 +365,7 @@ export default function InfoPenawaran() {
                                 Terima
                               </Button>
                             </>
-
                           )}
-
                         </div>
                       </>
                     )}
