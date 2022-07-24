@@ -96,7 +96,7 @@ export default function InfoPenawaran() {
     };
     // console.log(data)
     dispatch(updateOffering(data));
-    window.location.reload();
+    // window.location.reload();
   }
   function handlerefresh() {
     window.location.reload();
@@ -274,7 +274,7 @@ export default function InfoPenawaran() {
                       <>
                         <div className="float-end mt-2">
                           {produk.status === "BERHASIL" ||
-                          produk.status === "GAGAL" ? (
+                            produk.status === "GAGAL" ? (
                             <>
                               <Button
                                 className="btnOutline me-2 px-5"
