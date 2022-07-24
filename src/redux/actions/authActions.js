@@ -329,7 +329,7 @@ export const getUserbyID = (params) => async (dispatch) => {
 
 export const sendLinkResetPassword = (data) => async (dispatch) => {
   try {
-    const response = await axios.post(
+    const response = await fetch(
       "https://secondhand-backend-k1.herokuapp.com/api/v1/password-reset",
       {
         method: "POST",
