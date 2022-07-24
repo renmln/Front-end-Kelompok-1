@@ -16,6 +16,8 @@ import {
   RESET_PASSWORD_ERROR,
 } from "./types";
 
+import axios from "axios";
+
 export const login = (data) => async (dispatch) => {
   try {
     const response = await fetch(
@@ -327,7 +329,7 @@ export const getUserbyID = (params) => async (dispatch) => {
 
 export const sendLinkResetPassword = (data) => async (dispatch) => {
   try {
-    const response = await fetch(
+    const response = await axios.post(
       "https://secondhand-backend-k1.herokuapp.com/api/v1/password-reset",
       {
         method: "POST",
