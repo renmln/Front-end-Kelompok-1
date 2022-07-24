@@ -53,7 +53,7 @@ root.render(
         <Route path="/info-penawaran/:id" element={<InfoPenawaran />} />
         <Route path="/daftarterjual" element={<DaftarTerjual />} />
         <Route path="/lupa-password" element={<LupaPassword />} />
-        <Route path="/password-reset/:id/:token" element={<ResetPassword />} />
+        <Route path="/password-reset/:token" element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   </Provider>

@@ -17,13 +17,14 @@ const LupaPassword = () => {
       setError("Email wajib diisi");
     } else {
       const data = { email };
+      console.log(data)
       dispatch(sendLinkResetPassword(data));
       setError("");
     }
   };
 
   return (
-    <div style={{marginTop: "200px"}}>
+    <div style={{ marginTop: "200px" }}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">
