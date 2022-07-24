@@ -9,6 +9,8 @@ import {
   DELETE_PRODUCT,
 } from "./types";
 
+import axios from "axios";
+
 const { REACT_APP_BACKEND } = process.env;
 
 // Di Halaman Landing Page
@@ -164,7 +166,7 @@ export const updateProduct = (params) => async (dispatch) => {
       formdata.append("picture", "");
     }
 
-    const response = await fetch(
+    const response = await axios.put(
       `https://secondhand-backend-k1.herokuapp.com/api/v1/product/update/${params.id}`,
       {
         method: "PUT",
