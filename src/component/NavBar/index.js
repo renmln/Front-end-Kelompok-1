@@ -259,18 +259,6 @@ export default function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              {/* <form className="d-flex border buttonradius12 ">
-                <input
-                  className="form-control border-0"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                  //   onChange={(e) => setSearchProduct(e.target.value)}
-                ></input>
-                <button className="btn" type="submit">
-                  <FiSearch />
-                </button>
-              </form> */}
               <Search />
             </Nav.Link>
           </Nav>
