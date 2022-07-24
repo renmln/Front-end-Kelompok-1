@@ -30,7 +30,7 @@ export default function ResetPassword() {
       });
     } else {
       dispatch(resetPassword(token, data));
-      // window.location = '/login';
+      window.location = '/login';
     }
   };
 
