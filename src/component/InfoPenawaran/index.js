@@ -141,7 +141,7 @@ export default function InfoPenawaran() {
     };
     // console.log(data)
     dispatch(updateTransaction(data));
-    window.location.reload();
+    // window.location.reload();
   }
 
   return (
