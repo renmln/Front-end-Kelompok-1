@@ -16,6 +16,8 @@ import {
   RESET_PASSWORD_ERROR,
 } from "./types";
 
+import axios from "axios";
+
 export const login = (data) => async (dispatch) => {
   try {
     const response = await fetch(

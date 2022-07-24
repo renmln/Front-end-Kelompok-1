@@ -200,7 +200,10 @@ export default function LandingPage() {
           ) : isTrigger ? (
             // <Product category={category}/>
             product
-              .filter((item) => item.category === category)
+              .filter(
+                (item) =>
+                  item.category === category && item.status !== "NOT AVAILABLE"
+              )
               .map((item) => (
                 <div key={item.id} className="col-md-4 col-xl-3 col-sm-12">
                   <a
