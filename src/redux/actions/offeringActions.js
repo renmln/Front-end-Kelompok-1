@@ -12,6 +12,8 @@ import axios from "axios";
 
 export const addOffering = (params) => async (dispatch) => {
   try {
+    console.log("post offering");
+    console.log(params);
     const id_product = params.id_product;
     const offering_price = params.offering_price;
     const no_hp = params.no_hp;

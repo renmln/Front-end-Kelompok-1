@@ -166,7 +166,7 @@ export const updateProduct = (params) => async (dispatch) => {
       formdata.append("picture", "");
     }
 
-    const response = await axios.put(
+    const response = await fetch(
       `https://secondhand-backend-k1.herokuapp.com/api/v1/product/update/${params.id}`,
       {
         method: "PUT",
@@ -212,8 +212,8 @@ export const deleteProduct = (params) => async (dispatch) => {
   try {
     const response = await fetch(
       REACT_APP_BACKEND +
-        "/api/v1/product?" +
-        new URLSearchParams({ id, oldImage }),
+      "/api/v1/product?" +
+      new URLSearchParams({ id, oldImage }),
       {
         method: "DELETE",
         headers: {

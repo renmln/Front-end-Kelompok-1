@@ -61,7 +61,7 @@ export default function HalamanProduk() {
       status: "ditawar",
     };
     dispatch(updateProduct(updatestatus));
-    window.location.reload();
+    // window.location.reload();
   };
 
   function handleEdit() {
