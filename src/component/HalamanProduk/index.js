@@ -141,7 +141,7 @@ export default function HalamanProduk() {
                           return (
                             <Carousel.Item key={index}>
                               <img
-                                className="d-block w-100 boxImagePreview"
+                                className="d-block w-100 boxImagePreview buttonradius20"
                                 src={item}
                                 alt="First slide"
                               />
@@ -150,11 +150,13 @@ export default function HalamanProduk() {
                         })}
                       </Carousel>
                     )}
-                    <h5 className="mt-5">Deskripsi</h5>
-                    <p>{detailProduct.description}</p>
+                    <div className="boxShadow mt-4">
+                      <h5 className="mt-5">Deskripsi</h5>
+                      <p>{detailProduct.description}</p>
+                    </div>
                   </div>
                   <div className="col-xl-4 col-sm-12">
-                    <div className="card mt-1 p-2 rounded mb-2">
+                    <div className="card p-3 mt-1 boxShadow mb-2">
                       <h6 className="card-title " style={{ fontsize: "14px" }}>
                         {detailProduct.product_name}
                       </h6>
@@ -166,19 +168,15 @@ export default function HalamanProduk() {
                       </p>
                       {detailProduct.id_seller === user.id ? (
                         <>
-                          <button className="btn btn-custom me-3 mb-2 ">
-                            {" "}
-                            Terbitakan
-                          </button>
                           <button
-                            className="btn btn-custom me-3 mb-2 "
+                            className="btn btn-custom mb-2 "
                             onClick={() => handleEdit(detailProduct.id)}
                           >
                             {" "}
                             Edit
                           </button>
                           <button
-                            className="btn btn-custom me-3 mb-2 "
+                            className="btn btn-outline-danger mb-2 "
                             onClick={() => handleDestroy(detailProduct.id)}
                           >
                             {" "}
@@ -190,7 +188,7 @@ export default function HalamanProduk() {
                           {cekoffer === null || cekoffer === undefined ? (
                             <>
                               <button
-                                className="btn btn-custom me-3 mb-2 "
+                                className="btn btn-custom mb-2 "
                                 type="button"
                                 // onClick={() => setModalShow(true)}
                                 id="suksesnego"
@@ -202,7 +200,7 @@ export default function HalamanProduk() {
                             </>
                           ) : (
                             <button
-                              className="btn btn-custom me-3 mb-2 "
+                              className="btn btn-custom mb-2 "
                               // onClick={() => setModalShow(true)}
                               id="suksesnego"
                               disabled
@@ -213,8 +211,8 @@ export default function HalamanProduk() {
                         </>
                       )}
                     </div>
-                    <div className="card">
-                      <div className="row m-2">
+                    <div className="card infoSeller">
+                      <div className="row">
                         <div className="col-2">
                           {detailUser.photo_profile === null ? (
                             <img
@@ -231,7 +229,7 @@ export default function HalamanProduk() {
                           )}
                         </div>
                         <div className="col-10">
-                          <h5>{detailUser.name}</h5>
+                          <h6>{detailUser.name}</h6>
                           <p>{detailUser.city}</p>
                         </div>
                       </div>

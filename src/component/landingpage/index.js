@@ -211,20 +211,23 @@ export default function LandingPage() {
                     className="text-decoration-none"
                     style={{ color: "black" }}
                   >
-                    <div className="card mb-3" style={{ border: "none" }}>
+                    <div
+                      className="card cardProduct boxShadow"
+                      style={{ border: "none" }}
+                    >
                       <div className="d-flex justify-content-center ">
                         <img
                           className="card-img-top center-cropped m-1 img-fluid"
                           src={item.image_1}
                           style={{
                             width: "200px",
-                            height: "150px",
+                            height: "100px",
                             objectFit: "cover",
                           }}
                           alt="product_image"
                         />
                       </div>
-                      <div className="card-body mb-3">
+                      <div className="card-body">
                         <h6
                           className="card-title text-decoration-none"
                           style={{ fontsize: "14px" }}
@@ -256,15 +259,15 @@ export default function LandingPage() {
                   className="text-decoration-none"
                   style={{ color: "black" }}
                 >
-                  <div className="card cardProduct " style={{}}>
+                  <div className="card cardProduct boxShadow" style={{}}>
                     <div className="d-flex justify-content-center ">
                       <img
                         className="card-img-top center-cropped m-1 img-fluid"
                         src={item.image_1}
                         style={{
-                          width: "250px",
-                          height: "200px",
-                          objectFit: "contain",
+                          width: "200px",
+                          height: "100px",
+                          objectFit: "cover",
                         }}
                         alt="product_image"
                       />
