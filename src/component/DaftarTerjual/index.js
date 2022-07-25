@@ -132,7 +132,7 @@ export default function DaftarTerjual() {
                   </tr>
                   <tr
                     style={{ height: "50px" }}
-                    className="kategoriActive"
+                    className="kategoriInActive"
                     id="filterDiminati"
                     onClick={handleFilterDiminati}
                   >
@@ -143,7 +143,7 @@ export default function DaftarTerjual() {
                   </tr>
                   <tr
                     style={{ height: "50px" }}
-                    className="kategoriInActive"
+                    className="kategoriActive"
                     id="filterTerjual"
                     onClick={handleFilterTerjual}
                   >
@@ -165,8 +165,8 @@ export default function DaftarTerjual() {
                       <img src={NullOffer}></img>
                     </div>
                     <p className="text-center">
-                      Belum ada produkmu yang diminati nih, sabar ya rejeki
-                      nggak kemana kok
+                      Belum ada produkmu yang terjual nih, sabar ya rejeki nggak
+                      kemana kok
                     </p>
                   </Col>
                 </>
