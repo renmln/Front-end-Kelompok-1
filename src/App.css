@@ -30,6 +30,10 @@
   border-color: #e2d4f0;
 }
 
+.btnJual {
+  z-index: 3 !important;
+}
+
 .btn-custom:hover,
 .btn-custom:focus,
 .btn-custom:active,

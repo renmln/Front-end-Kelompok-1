@@ -1,7 +1,8 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import carosel1 from "../../images/banner-1.jpeg";
-import carosel2 from "../../images/banner-2.jpeg";
+import carosel1 from "../../images/banner1.png";
+import carosel2 from "../../images/banner2.png";
+import carosel3 from "../../images/banner3.jpeg";
 import { Container } from "react-bootstrap";
 import "../../App.css";
 
@@ -22,6 +23,13 @@ export default function CarouselBanner() {
               className="d-block w-100 buttonradius20"
               src={carosel2}
               alt="Second slide"
+            />
+          </Carousel.Item>
+          <Carousel.Item interval={3000} className="buttonradius20">
+            <img
+              className="d-block w-100 buttonradius20"
+              src={carosel3}
+              alt="Third slide"
             />
           </Carousel.Item>
         </Carousel>
