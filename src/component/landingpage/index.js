@@ -211,7 +211,7 @@ export default function LandingPage() {
                     className="text-decoration-none"
                     style={{ color: "black" }}
                   >
-                    <div className="card " style={{ border: "none" }}>
+                    <div className="card mb-3" style={{ border: "none" }}>
                       <div className="d-flex justify-content-center ">
                         <img
                           className="card-img-top center-cropped m-1 img-fluid"

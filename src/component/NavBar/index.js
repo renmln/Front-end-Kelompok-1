@@ -352,13 +352,13 @@ export default function NavBar() {
                               </p>
                               <p
                                 className="mb-1"
-                                style={{ fontSize: "14px", fontWeight: "bold" }}
+                                style={{ fontSize: "12px", fontWeight: "bold" }}
                               >
                                 {item.Product.price}
                               </p>
                               <p
                                 className="mb-1"
-                                style={{ fontSize: "14px", fontWeight: "bold" }}
+                                style={{ fontSize: "12px", fontWeight: "bold" }}
                               >
                                 {item.message}
                               </p>

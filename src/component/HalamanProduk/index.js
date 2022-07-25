@@ -14,6 +14,7 @@ import Swal from "sweetalert2";
 import { Carousel } from "react-bootstrap";
 import NavBar from "../NavBar";
 import {
+  deleteProduct,
   getProductById,
   updateProduct,
 } from "../../redux/actions/productsActions";
@@ -63,6 +64,11 @@ export default function HalamanProduk() {
     dispatch(updateProduct(updatestatus));
     // window.location.reload();
   };
+
+  function handleDestroy(id) {
+    dispatch(deleteProduct(id));
+    window.location = "/";
+  }
 
   function handleEdit() {
     return navigate(`/edit-product/${id}`);
@@ -170,6 +176,13 @@ export default function HalamanProduk() {
                           >
                             {" "}
                             Edit
+                          </button>
+                          <button
+                            className="btn btn-custom me-3 mb-2 "
+                            onClick={() => handleDestroy(detailProduct.id)}
+                          >
+                            {" "}
+                            Hapus
                           </button>
                         </>
                       ) : (

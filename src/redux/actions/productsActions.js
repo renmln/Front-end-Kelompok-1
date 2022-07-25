@@ -207,13 +207,55 @@ export const updateProduct = (params) => async (dispatch) => {
   }
 };
 
-export const deleteProduct = (params) => async (dispatch) => {
-  const { id, oldImage } = params;
+// export const deleteProduct = (params) => async (dispatch) => {
+//   const { id, oldImage } = params;
+//   try {
+//     const response = await fetch(
+//       REACT_APP_BACKEND +
+//       "/api/v1/product?" +
+//       new URLSearchParams({ id, oldImage }),
+//       {
+//         method: "DELETE",
+//         headers: {
+//           Authorization: `Bearer ${localStorage.getItem("token")}`,
+//         },
+//       }
+//     );
+
+//     const data = await response.json();
+
+//     dispatch({
+//       type: DELETE_PRODUCT,
+//       payload: data.status,
+//     });
+
+//     Swal.fire({
+//       position: "center",
+//       icon: "success",
+//       title: "Delete success",
+//       showConfirmButton: false,
+//       timer: 1500,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: PRODUCT_ERROR,
+//       payload: error,
+//     });
+
+//     Swal.fire({
+//       position: "center",
+//       icon: "error",
+//       title: error,
+//       showConfirmButton: false,
+//       timer: 1500,
+//     });
+//   }
+// };
+
+export const deleteProduct = (id) => async (dispatch) => {
   try {
     const response = await fetch(
-      REACT_APP_BACKEND +
-      "/api/v1/product?" +
-      new URLSearchParams({ id, oldImage }),
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/product/destroy/${id}`
       {
         method: "DELETE",
         headers: {
@@ -223,7 +265,6 @@ export const deleteProduct = (params) => async (dispatch) => {
     );
 
     const data = await response.json();
-
     dispatch({
       type: DELETE_PRODUCT,
       payload: data.status,

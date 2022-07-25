@@ -45,7 +45,7 @@ export default function DaftarJual() {
     return navigate("/daftarterjual");
   };
 
-  const barangTersedia = []
+  const barangTersedia = [];
   if (product) {
     for (let i = 0; i < product.length; i++) {
       if (product[i].status !== "NOT AVAILABLE") {
@@ -57,13 +57,12 @@ export default function DaftarJual() {
   function handlebuttonjual() {
     if (barangTersedia.length >= 4) {
       Swal.fire({
-        icon: 'error',
-        title: 'Tidak bisa manambahkan produk',
-        text: 'mencapai batas maksimal jual',
-      })
-    }
-    else {
-      navigate('/infoproduk')
+        icon: "error",
+        title: "Tidak bisa manambahkan produk",
+        text: "mencapai batas maksimal jual",
+      });
+    } else {
+      navigate("/infoproduk");
     }
   }
 
@@ -153,10 +152,9 @@ export default function DaftarJual() {
                 <a onClick={handlebuttonjual}>
                   <img src={AddProduct} className="imgBtnAdd" alt="" />
                 </a>
-
-
               </Col>
-              {barangTersedia.length === 0 || barangTersedia.length === undefined ? (
+              {barangTersedia.length === 0 ||
+              barangTersedia.length === undefined ? (
                 <></>
               ) : (
                 barangTersedia.map((product) => (

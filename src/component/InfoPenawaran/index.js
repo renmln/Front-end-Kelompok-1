@@ -144,6 +144,13 @@ export default function InfoPenawaran() {
     // window.location.reload();
   }
 
+  function rupiah(number) {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  }
+
   return (
     <div>
       <NavBar />
@@ -253,13 +260,13 @@ export default function InfoPenawaran() {
                           className="my-auto"
                           style={{ fontSize: "14px", lineHeight: "26px" }}
                         >
-                          {produk.Product.price}
+                          {rupiah(produk.Product.price)}
                         </h5>
                         <h5
                           className="my-auto"
                           style={{ fontSize: "14px", lineHeight: "26px" }}
                         >
-                          {produk.offering_price}
+                          Ditawar {rupiah(produk.offering_price)}
                         </h5>
                       </div>
                       <p
@@ -274,7 +281,7 @@ export default function InfoPenawaran() {
                       <>
                         <div className="float-end mt-2">
                           {produk.status === "BERHASIL" ||
-                            produk.status === "GAGAL" ? (
+                          produk.status === "GAGAL" ? (
                             <>
                               <Button
                                 className="btnOutline me-2 px-5"
