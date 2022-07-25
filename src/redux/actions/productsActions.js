@@ -255,7 +255,7 @@ export const updateProduct = (params) => async (dispatch) => {
 export const deleteProduct = (id) => async (dispatch) => {
   try {
     const response = await fetch(
-      `https://secondhand-backend-k1.herokuapp.com/api/v1/product/destroy/${id}`
+      `https://secondhand-backend-k1.herokuapp.com/api/v1/product/destroy/${id}`,
       {
         method: "DELETE",
         headers: {
