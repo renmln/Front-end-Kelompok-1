@@ -108,6 +108,13 @@ export default function LandingPage() {
     }
   }
 
+  function rupiah(number) {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  }
+
   return (
     <Container className="App">
       <NavBar />
@@ -289,7 +296,7 @@ export default function LandingPage() {
                         className="text-decoration-none"
                         style={{ fontsize: "14px" }}
                       >
-                        Rp {item.price}
+                        {rupiah(item.price)}
                       </p>
                     </div>
                   </div>

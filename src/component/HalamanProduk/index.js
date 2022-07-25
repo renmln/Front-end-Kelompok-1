@@ -24,7 +24,7 @@ export default function HalamanProduk() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { detailProduct } = useSelector((state) => state.product);
+  const { detailProduct, status } = useSelector((state) => state.product);
   const { user, detailUser } = useSelector((state) => state.auth);
   const { offering } = useSelector((state) => state.offering);
   const [modalShow, setModalShow] = React.useState(false);
@@ -62,6 +62,7 @@ export default function HalamanProduk() {
       status: "ditawar",
     };
     dispatch(updateProduct(updatestatus));
+    console.log(status);
     // window.location.reload();
   };
 
