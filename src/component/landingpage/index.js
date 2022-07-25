@@ -119,8 +119,8 @@ export default function LandingPage() {
     <Container className="App">
       <NavBar />
       <CarouselBanner />
-      <Container className="container py-3">
-        <p className="fw-bold">Telusuri Kategori</p>
+      <Container className="container py-3 home">
+        <p>Telusuri Kategori</p>
         <div
           className="container py-3 d-flex buttonradius12"
           style={{ overflowX: "auto" }}
@@ -237,19 +237,19 @@ export default function LandingPage() {
                       <div className="card-body">
                         <h6
                           className="card-title text-decoration-none"
-                          style={{ fontsize: "14px" }}
+                          style={{ fontSize: "16px" }}
                         >
                           {item.product_name}
                         </h6>
                         <p
                           className="text-decoration-none"
-                          style={{ fontsize: "10px" }}
+                          style={{ fontSize: "14px" }}
                         >
                           {item.category}
                         </p>
                         <p
                           className="text-decoration-none"
-                          style={{ fontsize: "14px" }}
+                          style={{ fontSize: "16px" }}
                         >
                           {rupiah(item.price)}
                         </p>
@@ -260,13 +260,16 @@ export default function LandingPage() {
               ))
           ) : (
             Produktersedia.map((item) => (
-              <div key={item.id} className="col-md-4 col-xl-3 col-sm-12">
+              <div key={item.id} className="col-md-4 col-xl-3 col-sm-12 mb-3">
                 <a
                   href={`/halamanproduk/${item.id}`}
                   className="text-decoration-none"
                   style={{ color: "black" }}
                 >
-                  <div className="card cardProduct boxShadow" style={{}}>
+                  <div
+                    className="card cardProduct boxShadow"
+                    style={{ border: "none" }}
+                  >
                     <div className="d-flex justify-content-center ">
                       <img
                         className="card-img-top center-cropped m-1 img-fluid"
@@ -282,19 +285,19 @@ export default function LandingPage() {
                     <div className="card-body">
                       <h6
                         className="card-title text-decoration-none"
-                        style={{ fontsize: "14px" }}
+                        style={{ fontSize: "16px" }}
                       >
                         {item.product_name}
                       </h6>
                       <p
                         className="text-decoration-none"
-                        style={{ fontsize: "10px" }}
+                        style={{ fontSize: "12px" }}
                       >
                         {item.category}
                       </p>
                       <p
                         className="text-decoration-none"
-                        style={{ fontsize: "14px" }}
+                        style={{ fontSize: "16px" }}
                       >
                         {rupiah(item.price)}
                       </p>

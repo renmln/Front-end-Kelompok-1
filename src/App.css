@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Nunito:wght@200;300;400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 * {
   box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+  scroll-behavior: smooth;
 }
 
 .buttonradius12 {
@@ -105,8 +110,8 @@ fieldset[disabled] .btn-custom.active {
 }
 
 .notifikasi {
-  border-radius: 0;
-  padding: 0;
+  border-radius: 5px;
+  padding: 3px;
 }
 
 .dropdown-item.active,
@@ -126,6 +131,20 @@ fieldset[disabled] .btn-custom.active {
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.home p {
+  font-weight: bold;
+  font-size: large;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.des {
+  font-size: 14px;
+}
+.cardProduct h6 {
+  font-weight: 500;
 }
 
 .infoPenjual {
@@ -158,6 +177,10 @@ fieldset[disabled] .btn-custom.active {
 
 .infoSeller h6 {
   margin-bottom: 0px;
+}
+
+.infoSeller p {
+  font-size: 12px;
 }
 
 .imageSmall {

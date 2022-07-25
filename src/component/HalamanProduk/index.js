@@ -126,9 +126,7 @@ export default function HalamanProduk() {
             <NavBar />
           </div>
           {user === null ? (
-            <>
-              <p>asdfsaafs</p>
-            </>
+            <>{/* <p>asdfsaafs</p> */}</>
           ) : (
             <>
               <div className="container-fluid mt-5">
@@ -151,20 +149,20 @@ export default function HalamanProduk() {
                         })}
                       </Carousel>
                     )}
-                    <div className="boxShadow mt-4">
-                      <h5 className="mt-5">Deskripsi</h5>
+                    <div className="des boxShadow mt-4">
+                      <h6 className="">Deskripsi</h6>
                       <p>{detailProduct.description}</p>
                     </div>
                   </div>
                   <div className="col-xl-4 col-sm-12">
-                    <div className="card p-3 mt-1 boxShadow mb-2">
-                      <h6 className="card-title " style={{ fontsize: "14px" }}>
+                    <div className="card cardProduct p-3 mt-1 boxShadow mb-2">
+                      <h6 className="card-title " style={{ fontSize: "16px" }}>
                         {detailProduct.product_name}
                       </h6>
-                      <p style={{ fontsize: "10px" }}>
+                      <p style={{ fontSize: "12px" }}>
                         {detailProduct.category}
                       </p>
-                      <p style={{ fontsize: "14px" }}>
+                      <p style={{ fontSize: "16px" }}>
                         Rp {detailProduct.price}
                       </p>
                       {detailProduct.id_seller === user.id ? (

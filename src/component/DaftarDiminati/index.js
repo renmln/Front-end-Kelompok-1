@@ -191,7 +191,7 @@ export default function DaftarDiminati() {
                               className="col-xl-6 mb-1"
                               style={{ textAlign: "right" }}
                             >
-                              <p className="mb-1">
+                              <p className="mb-1 ml-2">
                                 {format(
                                   parseISO(item.createdAt),
                                   "dd MMM, kk:mm"
@@ -205,10 +205,7 @@ export default function DaftarDiminati() {
                           >
                             {item.Product.product_name}
                           </p>
-                          <p
-                            className="mb-1"
-                            style={{ fontSize: "14px", fontWeight: "bold" }}
-                          >
+                          <p className="mb-1" style={{ fontSize: "14px" }}>
                             {rupiah(item.Product.price)}
                           </p>
                           <p

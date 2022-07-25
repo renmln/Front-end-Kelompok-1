@@ -199,7 +199,7 @@ export default function InfoPenawaran() {
           <Toast.Body>Status produk berhasil diperbarui</Toast.Body>
         </Toast>
         <div className="container mt-3" style={{ maxWidth: "700px" }}>
-          <a href="/">
+          <a href="/daftarDiminati">
             {" "}
             <img src={arrow} alt="" />
           </a>
@@ -258,7 +258,7 @@ export default function InfoPenawaran() {
                         </h5>
                         <h5
                           className="my-auto"
-                          style={{ fontSize: "14px", lineHeight: "26px" }}
+                          style={{ fontSize: "12px", lineHeight: "26px" }}
                         >
                           {rupiah(produk.Product.price)}
                         </h5>
