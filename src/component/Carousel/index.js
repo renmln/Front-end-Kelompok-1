@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import carosel1 from "https://res.cloudinary.com/dg6ezwc4v/image/upload/v1658751486/samples/banner1_hlupxq.png";
+import carosel1 from "../../images/banner1.png";
 import carosel2 from "../../images/banner2.png";
 import carosel3 from "../../images/banner3.jpeg";
 import { Container } from "react-bootstrap";
