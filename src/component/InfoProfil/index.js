@@ -90,7 +90,8 @@ export default function InfoProfil() {
                 <img
                   src={photo_profile}
                   alt=""
-                  style={{ maxHeight: "150px", maxWidth: "150px" }}
+                  className="rounded"
+                  style={{ maxHeight: "100px", maxWidth: "100px" }}
                 />
               ) : (
                 <img src={Group1} alt=".." />

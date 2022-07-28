@@ -85,7 +85,7 @@ export default function DaftarJual() {
                   <img
                     src={user.photo_profile}
                     alt=""
-                    className="image-profile"
+                    className="image-profile rounded"
                   />
                   <div>
                     <h5 className="my-auto">{user.name}</h5>
